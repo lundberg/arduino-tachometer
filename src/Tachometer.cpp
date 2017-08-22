@@ -26,6 +26,7 @@ void Tachometer::trigger() {
     if (this->pulseTimestamp > 0) {
         unsigned long width = now - this->pulseTimestamp;
 
+        /*
         // Ignore short pulse widths / bounce to prevent noise
         if (width < TACH_MIN_PULSE_WIDTH) {
             Serial.print("-- ignoring pulse -- ");
@@ -34,6 +35,7 @@ void Tachometer::trigger() {
             Serial.println(this->pulseWidth);
             return;
         }
+        */
 
         // Record pulse width
         this->pulse(width);
