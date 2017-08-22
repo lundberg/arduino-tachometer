@@ -9,7 +9,7 @@
 #define MINUTE_MICROS 60.0 * SECOND_MICROS
 
 #define TACH_MIN_PULSE_WIDTH SECOND_MICROS / 1000  // 1000 Hz 
-#define TACH_MAX_PULSE_WIDTH SECOND_MICROS         // 1 Hz 
+#define TACH_MAX_PULSE_WIDTH SECOND_MICROS / 4     // 4 Hz 
 #define TACH_PULSE_SAMPLE_COUNT 15
 
 
@@ -91,7 +91,7 @@ private:
             }
 
             // Calculate median pulse width
-            long width = quick_select_median(stats, TACH_PULSE_SAMPLE_COUNT);
+            unsigned long width = quick_select_median(stats, TACH_PULSE_SAMPLE_COUNT);
 
             // Update pulse width if changed
             if (width != this->pulseWidth) {

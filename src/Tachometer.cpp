@@ -88,11 +88,11 @@ int Tachometer::getRPM(bool smooth) {
     if (smooth && rpm) {
         int precision;
 
-        if (rpm < 900)       precision = 1.0;
-        else if (rpm < 1000) precision = 5.0;
-        else if (rpm < 2000) precision = 5.0;  //10.0;
-        else if (rpm < 3500) precision = 10.0;  //50.0;
-        else                 precision = 50.0;  //100.0;
+        if (rpm < 900)       precision = 10.0;
+        else if (rpm < 1000) precision = 10.0;
+        else if (rpm < 2000) precision = 50.0;  //10.0;
+        else if (rpm < 3500) precision = 100.0;  //50.0;
+        else                 precision = 100.0;  //100.0;
 
         rpm = round(rpm / precision) * precision;
     }
